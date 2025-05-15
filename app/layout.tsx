@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Nav from "@/Components/Nav";
+import Footer from "@/Components/Footer";
 
 const popinsFonts = Poppins({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${popinsFonts.variable} antialiased`}>
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
