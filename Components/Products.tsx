@@ -4,9 +4,10 @@ import Image from "next/image";
 import { CiShare2 } from "react-icons/ci";
 import { MdOutlineCompare, MdFavoriteBorder } from "react-icons/md";
 import { product, Product } from "@/products";
+import { useCart } from "@/Components/context/CartContext"; // ✅ Import the cart hook
 
 type ProductsProps = {
-  mode?: "showMore" | "pagination"; // optional mode
+  mode?: "showMore" | "pagination";
   itemsPerPage?: number;
 };
 
@@ -19,6 +20,8 @@ const actionItems = [
 const Products = ({ mode = "showMore", itemsPerPage = 8 }: ProductsProps) => {
   const [showMore, setShowMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const { addToCart } = useCart(); // ✅ Use the cart context
 
   const totalPages = Math.ceil(Product.length / itemsPerPage);
 
@@ -35,7 +38,7 @@ const Products = ({ mode = "showMore", itemsPerPage = 8 }: ProductsProps) => {
   return (
     <div className="flex justify-center">
       <main>
-        <div className="grid grid-cols-4 gap-3 mx-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mx-5 md:mx-20">
           {displayedProducts.map((product) => (
             <div key={product.id} className="group relative p-4">
               <Image
@@ -54,7 +57,10 @@ const Products = ({ mode = "showMore", itemsPerPage = 8 }: ProductsProps) => {
               </div>
               <div className="absolute inset-0 bg-[#363737]/80 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
                 <div>
-                  <button className="text-center text-[16px] text-[#B88E2F] bg-white w-full py-2 font-semibold">
+                  <button
+                    className="text-center text-[16px] text-[#B88E2F] bg-white w-full py-2 font-semibold"
+                    onClick={() => addToCart(product)} // ✅ Call addToCart
+                  >
                     Add to cart
                   </button>
                   <div className="flex items-center gap-3 mt-5">

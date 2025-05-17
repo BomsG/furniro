@@ -18,7 +18,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className=" text-[#333] py-16 px-10">
+    <footer className=" text-[#333]  px-10">
       <hr className="mb-20 border-t border-gray-200" />
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
         {/* Company */}

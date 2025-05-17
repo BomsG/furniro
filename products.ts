@@ -4,15 +4,15 @@ import image2 from "@/public/images/image2.png";
 import image3 from "@/public/images/image3.png";
 import image4 from "@/public/images/image1.png";
 
-export interface product {
-  id: string;
+export type product = {
+  id: string; // string not number
   name: string;
+  price: number;
   image: StaticImageData;
+  alt: string;
   category: string;
   description: string;
-  price: number;
-  alt: string;
-}
+};
 
 export const Product: product[] = [
   {

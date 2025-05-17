@@ -4,6 +4,7 @@ import hereos from "@/public/images/shopH.png";
 import { BiChevronRight } from "react-icons/bi";
 import Products from "@/Components/Products";
 import Filter from "@/Components/Filter";
+import Warranty from "@/Components/Warranty";
 
 const page = () => {
   return (
@@ -27,6 +28,7 @@ const page = () => {
       <section>
         <Filter />
         <Products mode="pagination" itemsPerPage={8} />
+        <Warranty />
       </section>
     </div>
   );
